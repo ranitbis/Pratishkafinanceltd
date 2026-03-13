@@ -12,15 +12,16 @@ const otps = {};
 const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 587,
-    secure: false,
+    secure: false, // এটি false থাকবে ৫৮৭ পোর্টের জন্য
     auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS
     },
     tls: {
-        rejectUnauthorized: false
+        rejectUnauthorized: false // সিকিউরিটি হ্যান্ডশেক নিশ্চিত করার জন্য এটি জরুরি
     }
 });
+
 
 app.post('/api/send-email-otp', async (req, res) => {
     const { email } = req.body;
