@@ -10,15 +10,10 @@ app.use(cors());
 const otps = {};
 
 const transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 587,
-    secure: false, // এটি false থাকবে ৫৮৭ পোর্টের জন্য
+    service: 'gmail',
     auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS
-    },
-    tls: {
-        rejectUnauthorized: false // সিকিউরিটি হ্যান্ডশেক নিশ্চিত করার জন্য এটি জরুরি
     }
 });
 
